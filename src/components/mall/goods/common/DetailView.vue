@@ -1,6 +1,6 @@
 <template>
     <div>
-支付页面
+商品言情
     </div>
 </template>
 

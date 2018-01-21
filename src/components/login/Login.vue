@@ -3,11 +3,11 @@
     <img src="../../assets/logo.png" alt="">
     <div class="login-form">
       <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign" ref="ruleForm2" :rules="rules">
-        <el-form-item label="用户名" prop="uname">
-          <el-input v-model="formLabelAlign.uname"></el-input>
+        <el-form-item label="用户名" prop="user_name">
+          <el-input v-model="formLabelAlign.user_name"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="upwd">
-          <el-input v-model="formLabelAlign.upwd"></el-input>
+        <el-form-item label="密码" prop="password">
+          <el-input v-model="formLabelAlign.password"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
@@ -24,12 +24,12 @@ export default {
     return {
       labelPosition: "right",
       formLabelAlign: {
-        uname: "admin",
-        upwd: "123456"
+        user_name: "ivanyb",
+        password: "123"
       },
       //表单校验规则
       rules: {
-        uname: [
+        user_name: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           {
             min: 3,
@@ -38,10 +38,10 @@ export default {
             trigger: "blur"
           }
         ],
-        upwd: [
+        password: [
           { required: true, message: "请输入密码", trigger: "blur" },
           {
-            min: 6,
+            min: 3,
             max: 18,
             message: "输入长度在6-18字符之间",
             trigger: "blur"

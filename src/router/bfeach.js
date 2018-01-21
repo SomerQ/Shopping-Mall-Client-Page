@@ -5,11 +5,10 @@ let loginFree = ['index', 'cart', 'goodsDetail', 'goodsList'];
 export default function (to, from, next) {
   var toPath = to.name;
   if (loginFree.some(v => v == toPath)) {
-    next();
-    return;
+    return next();
   }
+  
   console.log(toPath);
-
   axios.get(api.isLogin)
     .then(res => {
       var isLogin = false;

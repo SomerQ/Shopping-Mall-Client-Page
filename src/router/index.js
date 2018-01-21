@@ -20,7 +20,7 @@ let mallChidren = [{
     component: GoodsList
   },
   {
-    path: 'goods/detail',
+    path: 'goods/detail/:id',
     name: 'goodsDetail',
     component: GoodsDetail
   },
@@ -58,6 +58,6 @@ var router = new Router({
   ]
 })
 
-// router.beforeEach(beforeEach)
+router.beforeEach(beforeEach)
 
 export default router
