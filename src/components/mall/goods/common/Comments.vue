@@ -32,7 +32,7 @@
             </li>
         </ul>
         <!--放置页码-->
-        <div class="page-box" style="margin:5px 0 0 62px">
+        <div class="page-box">
             <div id="pagination" class="digg">
                 <span class="disabled">« 上一页</span>
                 <span class="current">1</span>

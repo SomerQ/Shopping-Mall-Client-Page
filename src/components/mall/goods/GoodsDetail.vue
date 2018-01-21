@@ -20,35 +20,31 @@
                         <div class="goods-box clearfix">
                             <!--商品图片-->
                             <div class="pic-box">
-
+                                <detail-view :bannerList="detailData.imglist"></detail-view>
                             </div>
                             <!--/商品图片-->
 
                             <!--商品信息-->
-                          <DetailInfo :detailData="detailData.goodsinfo"></DetailInfo>
+                            <DetailInfo :detailData="detailData.goodsinfo"></DetailInfo>
                             <!--/商品信息-->
                         </div>
 
                         <div id="goodsTabs" class="goods-tab bg-wrap">
                             <!--选项卡-->
-                            <div id="tabHead" class="tab-head" style="position: static; top: 517px; width: 925px;">
-                                <el-tabs v-model="detailPage" type="card" @tab-click="handleClick">
-                                    <el-tab-pane label="商品介绍" name="first">
-                                        商品详情内容
-                                    </el-tab-pane>
-                                    <el-tab-pane label="商品评论" name="second">
-                                        <!--网友评论-->
-                                        <div class="comment-box">
-                                            <Comments :commentsData="comments"></Comments>
-                                        </div>
-                                    </el-tab-pane>
-
-                                </el-tabs>
-                            </div>
+                            <!-- <div id="tabHead" class="tab-head"> -->
+                            <el-tabs v-model="detailPage" type="card" @tab-click="handleClick">
+                                <el-tab-pane label="商品介绍" name="first">
+                                    <div v-html="detailData.goodsinfo.content"></div>
+                                </el-tab-pane>
+                                <el-tab-pane label="商品评论" name="second">
+                                    <!--网友评论-->
+                                    <div class="comment-box">
+                                        <Comments :commentsData="comments"></Comments>
+                                    </div>
+                                </el-tab-pane>
+                            </el-tabs>
+                            <!-- </div> -->
                             <!--/选项卡-->
-
-                            <!--选项内容-->
-
                         </div>
 
                     </div>
@@ -74,13 +70,13 @@
 import Hot from "./common/Hot";
 import Comments from "./common/Comments";
 import DetailInfo from "./common/DetailInfo";
-import DetailView from "./common/DetailView";
+import detailView from "./common/DetailView";
 export default {
   components: {
     Hot,
     Comments,
     DetailInfo,
-    DetailView
+    detailView
   },
   data() {
     return {
@@ -122,6 +118,12 @@ export default {
     this.id = this.$route.params.id;
     console.log(this.id);
     this.getData();
+  },
+  watch: {
+    $route() {
+      this.id = this.$route.params.id;
+      this.getData();
+    }
   }
 };
 </script>
